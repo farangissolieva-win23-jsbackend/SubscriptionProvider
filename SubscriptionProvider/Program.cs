@@ -10,7 +10,7 @@ var host = new HostBuilder()
 	{
 		services.AddApplicationInsightsTelemetryWorkerService();
 		services.ConfigureFunctionsApplicationInsights();
-		services.AddDbContext<DataContext>(x => x.UseSqlServer(Environment.GetEnvironmentVariable("SqlServer")));
+		services.AddDbContext<DataContext>(x => x.UseSqlServer("Server=tcp:sql-server-silicon.database.windows.net,1433;Initial Catalog=silicon_database;Persist Security Info=False;User ID=sqlAdmin;Password=Blessme!1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"));
 	})
 	.Build();
 
