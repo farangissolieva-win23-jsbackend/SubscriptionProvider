@@ -32,6 +32,10 @@ public class Unsubscribe(ILogger<Unsubscribe> logger, DataContext context)
 						await _context.SaveChangesAsync();
 						return new OkObjectResult(new { Status = 200, Message = "Subscriber is unsubscribed!" });
 					}
+					else
+					{
+						return new NotFoundObjectResult(new { Status = 404, Message = "Subscriber is not subscribed yet!" });
+					}
 				}
 			}
 		}
